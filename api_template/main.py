@@ -19,9 +19,9 @@ def read_items(sample: Sample) -> int:
 @app.get("/whoami")
 def whoami() -> str:
     # TODO
-    isim = "JOHN"
-    soyisim = "DOE"
-    mail = "mail@mail.com"
+    isim = "Nurefşan"
+    soyisim = "AK"
+    mail = "nurefsanak99@mail.com"
     
     person_card = {
         "isim": isim,
@@ -37,15 +37,9 @@ def model_card() -> str:
     # TODO
 
     model_card = {
-        'model_name': '',
-        'model_description': '',
-        'model_version': '',
-        'model_author': '',
-        'model_author_mail': '',
-        'model_creation_date': '',
-        'model_last_update_date': '',
-        'required_parameters_list': '',
-        'required_parameters_descriptions': '',
+        'model_name': 'Decision Tree',
+        'model_description': 'Selection4 kullanılmıştır.',
+        'model_version': '4. versyiyon'
     }
 
     return model_card

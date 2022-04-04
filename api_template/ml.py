@@ -5,8 +5,8 @@ model_path = 'models/*****'
 
 
 with open(model_path, 'rb') as f:
-    model = pickle.load(f)
+    d_tree_4 = pickle.load(f)
 
 
 def predict(sample):
-    return model.predict(sample).tolist()[0]
+    return d_tree_4.predict(sample).tolist()[0]

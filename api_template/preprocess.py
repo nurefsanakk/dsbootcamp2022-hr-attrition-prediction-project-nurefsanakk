@@ -5,21 +5,30 @@ import pickle
 
 # load onehot encoder
 with open("preprocessors/onehot_encoder.pkl", "rb") as f:
-    onehot_encoder = pickle.load(f)
+    one_hot_encoder = pickle.load(f)
 
 # load scaler
 with open("preprocessors/standard_scaler.pkl", "rb") as f:
-    scaler = pickle.load(f)
+    sc = pickle.load(f)
 
 
 # TODO
 COLUMNS_TO_REMOVE = [
-
+    'Over18',
+    'EmployeeCount', 
+    'EmployeeNumber', 
+    'StandardHours'
 ]
 
 # TODO
 COLUMNS_TO_ONEHOT_ENCODE = [
-
+    "BusinessTravel",
+    "Department", 
+    "EducationField",
+    "Gender", 
+    "JobRole", 
+    "MaritalStatus", 
+    "OverTime"
 ]
 
 
@@ -55,7 +64,11 @@ def create_features(df: pd.DataFrame) -> pd.DataFrame:
     # create MeanAttritionYear feature
     df["MeanAttritionYear"] = df["TotalWorkingYears"] / (df["NumCompaniesWorked"] + 1)
 
-    # TODO
+    # create YearsAtCompanyCat
+    bins = pd.IntervalIndex.from_tuples([(-1, 5), (5, 10), (10, 15), (15,100)])
+    cat_YearsAtCompany = pd.cut(df["YearsAtCompany"].to_list(), bins)
+    cat_YearsAtCompany.categories = [0,1,2,3]
+    df["YearsAtCompanyCat"] = cat_YearsAtCompany
 
     return df
 
