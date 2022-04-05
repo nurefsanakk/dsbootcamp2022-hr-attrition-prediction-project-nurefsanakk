@@ -1,7 +1,7 @@
 import pickle
 
 # TODO
-model_path = 'models/*****'
+model_path = "api_template/models/d_tree4.pkl"
 
 
 with open(model_path, 'rb') as f:
