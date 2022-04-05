@@ -1,7 +1,7 @@
 import pickle
 
 # TODO
-model_path = "models/d_tree4.pkl"
+model_path = "models/d_tree_4.pkl"
 
 
 with open(model_path, 'rb') as f:
